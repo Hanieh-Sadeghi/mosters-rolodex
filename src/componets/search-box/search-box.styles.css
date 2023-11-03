@@ -2,11 +2,10 @@
   -webkit-appearance: none;
   border: none;
   outline: none;
-  border-radius: 0 30px ;
+  border-radius: 0 25px ;
   padding: 15px;
-  width: 190px;
-  line-height: 40px;
+  width: 150px;
+  line-height: 30px;
   margin-bottom: 30px;
-  background-color: rgb(230, 236, 241)
-  /* backdrop-filter: blur(30px); */
+  background-color: rgba(222, 239, 253, 0.926)
 }
