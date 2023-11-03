@@ -1,0 +1,12 @@
+.search-box {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  border-radius: 0 30px ;
+  padding: 15px;
+  width: 190px;
+  line-height: 40px;
+  margin-bottom: 30px;
+  background-color: rgb(230, 236, 241)
+  /* backdrop-filter: blur(30px); */
+}
