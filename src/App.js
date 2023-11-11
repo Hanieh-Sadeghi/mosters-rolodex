@@ -16,10 +16,10 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
-  // const onSearchChange = (event) => {
-  //   const searchFieldString = event.target.value.toLocaleLowerCase();
-  //   setSearchField(searchFieldString);
-  // };
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
 
   useEffect(() => {
     const newFilteredMonsters = monsters.filter((monster) => {
@@ -29,6 +29,13 @@ const App = () => {
     setFilterMonsters(newFilteredMonsters)
   }, [monsters , searchField]);
 
+  const onStringChange = (event) => {
+    setStringField = (event.target.value);
+    
+  };
+
+  // const filteredMonsters = monsters
+
   return (
     <div className="App">
       <h1 className="app-title"> Monsters Rolodex</h1>
@@ -37,6 +44,10 @@ const App = () => {
         className="monsters-search-box"
         onChangeHander={onSearchChange}
         placeholder="search monsters"
+      />
+       <SearchBox
+        onChangeHander={onStringChange}
+        placeholder="set siting"
       />
       <CardList monsters={filteredMonsters} />
     </div>
