@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 
-import CardList from "./componets/card-list/card-list.componet";
-import SearchBox from "./componets/search-box/search-box-component";
+import CardList from "./componets/card-list/card-list.component";
+import SearchBox from "./componets/search-box/search-box.component";
 import "./App.css";
 
 const App = () => {
   const [searchField, setSearchField] = useState("");
   const [monsters, setMonsters] = useState([]);
-  const [filteredMonsters, setFilterMonsters] = useState(monsters);
-  // const [stringField, setStringField] = useState("");
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -16,43 +15,33 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
-  };
-
   useEffect(() => {
     const newFilteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
     });
 
-    setFilterMonsters(newFilteredMonsters)
-  }, [monsters , searchField]);
+    setFilteredMonsters(newFilteredMonsters);
+  }, [monsters, searchField]);
 
-  const onStringChange = (event) => {
-    setStringField = (event.target.value);
-    
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
   };
-
-  // const filteredMonsters = monsters
 
   return (
     <div className="App">
-      <h1 className="app-title"> Monsters Rolodex</h1>
-
+      <h1 className="app-title">Monsters Rolodex</h1>
       <SearchBox
         className="monsters-search-box"
         onChangeHander={onSearchChange}
         placeholder="search monsters"
       />
-       <SearchBox
-        onChangeHander={onStringChange}
-        placeholder="set siting"
-      />
-      <CardList monsters={filteredMonsters} />
+        <CardList monsters={filteredMonsters} />
     </div>
   );
 };
+
+export default App;
 
 // constructor() {
 //   super();
@@ -79,4 +68,4 @@ const App = () => {
 
 // }
 
-export default App;
+// export default App;
