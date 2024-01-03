@@ -15,18 +15,18 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
-  // useEffect(() => {
-  //   const newFilteredMonsters = monsters.filter((monster) => {
-  //     return monster.name.toLocaleLowerCase().includes(searchField);
-  //   });
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    });
 
-  //   setFilteredMonsters(newFilteredMonsters);
-  // }, [monsters, searchField]);
+    setFilteredMonsters(newFilteredMonsters);
+  }, [monsters, searchField]);
 
-  // const onSearchChange = (event) => {
-  //   const searchFieldString = event.target.value.toLocaleLowerCase();
-  //   setSearchField(searchFieldString);
-  // };
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
 
   return (
     <div className="App">
@@ -43,29 +43,29 @@ const App = () => {
 
 export default App;
 
-// constructor() {
-//   super();
+constructor() {
+  super();
 
-//   this.state = {
-//     monster: [],
-//     searchField: "",
-//   };
-// }
+  this.state = {
+    monster: [],
+    searchField: "",
+  };
+}
 
-// componentDidMount() {
-//   fetch("https://jsonplaceholder.typicode.com/users")
-//     .then((response) => response.json())
-//     .then((users) =>
-//       this.setState(() => {
-//         return { monster: users };
-//       })
-//     );
-// }
+componentDidMount() {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((users) =>
+      this.setState(() => {
+        return { monster: users };
+      })
+    );
+}
 
-// render() {
-//   const { monster, searchField } = this.state;
-//   const { onSearchChange } = this;
+render() {
+  const { monster, searchField } = this.state;
+  const { onSearchChange } = this;
 
-// }
+}
 
-// export default App;
+export default App;
